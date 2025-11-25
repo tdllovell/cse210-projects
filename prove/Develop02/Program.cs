@@ -5,11 +5,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<string> journalEntries = new List<string>();
+        List<Entry> _journalEntries = new List<Entry>();
+        FileMnger saver = new FileMnger();
+
         Console.WriteLine("Welcome to your digital journal!");
         int selectedOption = 0;
         while (selectedOption != 5)
         {
+            Console.WriteLine();
             Console.WriteLine("You can:");
             Console.WriteLine("1. Write a new entry");
             Console.WriteLine("2. View all written entries");
@@ -18,28 +21,35 @@ class Program
             Console.WriteLine("5. Quit");
             Console.Write("Which do you choose? ");
             selectedOption = int.Parse(Console.ReadLine());
+            Console.WriteLine();
 
             if (selectedOption == 1)
             {
                 Entry newEntry = new Entry();
-                string currentEntry = newEntry.CreateJournalEntry();
-                journalEntries.Add(currentEntry);
+                newEntry.CreateJournalEntry();
+                _journalEntries.Add(newEntry);
+                Console.WriteLine("Entry created!");
             }
             else if (selectedOption == 2)
             {
-                foreach (string entry in journalEntries)
+                foreach (Entry entry in _journalEntries)
                 {
-                    Console.WriteLine(entry);
-                    Console.WriteLine();
+                    entry.DisplayEntry();
                 }
             }
             else if (selectedOption == 3)
             {
-                
+                saver.SaveEntries(_journalEntries);
             }
             else if (selectedOption == 4)
             {
-
+                _journalEntries = saver.LoadEntries();
+            }
+            else if (selectedOption == 5) { }
+            else
+            {
+                Console.WriteLine("Invalid input. Please try again.");
+                Console.WriteLine();
             }
         }
     }
