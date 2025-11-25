@@ -48,10 +48,10 @@ class Menu
 
             using (StreamWriter outputFile = new StreamWriter(_fileName))
             {
-                Console.WriteLine(_points);
+                outputFile.WriteLine(_points);
                 foreach (Goal goal in _goals)
                 {
-                    Console.WriteLine(goal.GetFileOutput());
+                    outputFile.WriteLine(goal.GetFileOutput());
                 }
             }
         }
