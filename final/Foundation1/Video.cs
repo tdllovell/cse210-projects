@@ -18,10 +18,15 @@ class Video
         _comments.Add(comment);
     }
 
+    public int CountComments()
+    {
+        return _comments.Count;
+    }
+
     public void DisplayVideo()
     {
         Console.WriteLine($"\"{_title}\" ({_videoLength} seconds) by {_author}");
-        Console.WriteLine($"Comments: ");
+        Console.WriteLine($"Comments: {CountComments()}");
         foreach (Comment comment in _comments)
         {
             comment.DisplayContent();
