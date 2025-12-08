@@ -14,7 +14,6 @@ class Customer
 
     public bool IsUS()
     {
-        if (_address.IsUS()) { return true; }
-        else { return false; }
+        return _address.IsUS();
     }
 }
