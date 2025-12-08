@@ -10,10 +10,6 @@ class Customer
     }
 
     public string GetAddress() { return _address.ReturnAddress(); }
-    public string GetName(){ return _name; }
-
-    public bool IsUS()
-    {
-        return _address.IsUS();
-    }
+    public string GetName() { return _name; }
+    public bool IsUS() { return _address.IsUS(); }
 }
