@@ -31,7 +31,8 @@ class Program
         {
             order.DisplayPackingLabel();
             order.DisplayShippingLabel();
-            Console.WriteLine(order.TotalPrice());
+            Console.WriteLine();
+            Console.WriteLine($"Total: {order.TotalPrice()}");
             Console.WriteLine();
         }
     }

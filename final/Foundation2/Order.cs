@@ -45,6 +45,7 @@ class Order
     public void DisplayShippingLabel()
     {
         Console.WriteLine();
+        Console.WriteLine("Shipping Label");
         Console.WriteLine(_customer.GetName());
         Console.WriteLine(_customer.GetAddress());
     }
